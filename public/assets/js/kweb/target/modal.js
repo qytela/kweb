@@ -4,7 +4,9 @@ var no_telp = $("#val-no_telp");
 var nama = $("#val-nama");
 var tempat_lahir = $("#val-tempat_lahir");
 var tanggal_lahir = $("#val-tanggal_lahir");
-var jenis_kelamin = $("#val-jenis_kelamin");
+var jenis_kelamin = $("input[name=val-jenis_kelamin]");
+var jenis_kelamin_l = $("#val-jenis_kelamin-l");
+var jenis_kelamin_p = $("#val-jenis_kelamin-p");
 var provinsi = $("#val-provinsi");
 var kabkot = $("#val-kabkot");
 var kecamatan = $("#val-kecamatan");
@@ -14,19 +16,19 @@ var alamat = $("#val-alamat");
 var MODAL_DIV_TARGET_LABEL = $("#modalDivTargetLabel");
 var MODAL_DIV_TARGET = $("#modalDivTarget");
 var SAVE = $("#save");
-var ACTION_KASUS = $("#action-kasus");
+var ACTION_TARGET = $("#action-target");
 var TABLE_TARGET = $("#table-target");
 var TABLE_TARGET_RECYCLE = $("#table-target-recycle");
 var TRACKING_LIST = $(".tracking-list");
 
 $("#add-item-target").on("click", function() {
   resetErrors();
-  resetFields([id_kasus, nik, no_telp, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, provinsi, kabkot, kecamatan, kelurahan, alamat]);
+  resetFields([id_kasus, nik, no_telp, nama, tempat_lahir, tanggal_lahir, jenis_kelamin.filter(":checked"), provinsi, kabkot, kecamatan, kelurahan, alamat]);
 
   MODAL_DIV_TARGET_LABEL.text("Add Target");
   MODAL_DIV_TARGET.modal("show");
   SAVE.unbind().on("click", function() {
-    ACTION_KASUS.attr("action", base_url + "target/save_");
+    ACTION_TARGET.attr("action", "target/save_");
     onValidationTarget();
   });
 });
@@ -44,23 +46,24 @@ TABLE_TARGET.on("click", "#item-edit", function() {
   var id = $(this).attr("data");
 
   resetErrors();
-  resetFields([id_kasus, nik, no_telp, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, provinsi, kabkot, kecamatan, kelurahan, alamat]);
+  resetFields([id_kasus, nik, no_telp, nama, tempat_lahir, tanggal_lahir, jenis_kelamin.filter(":checked"), provinsi, kabkot, kecamatan, kelurahan, alamat]);
 
-  $.ajax({
-    url: base_url + "target/edit_",
-    type: "POST",
-    data: { id },
-    dataType: "json",
-    success: function(response) {
+  fetchData("target/edit_", "POST", { id })
+    .then(function(response) {
       id_kasus.val(response.id_kasus).trigger("change");
       nik.val(response.nik);
       no_telp.val(response.no_telp);
       nama.val(response.nama);
       tempat_lahir.val(response.tempat_lahir);
       tanggal_lahir.val(response.tanggal_lahir);
-      jenis_kelamin.val(response.jenis_kelamin);
       alamat.val(response.alamat);
       provinsi.val(response.provinsi).trigger("change");
+
+      if (response.jenis_kelamin === 1) {
+        jenis_kelamin_l.prop("checked", true);
+      } else {
+        jenis_kelamin_p.prop("checked", true);
+      }
 
       setTimeout(() => {
         kabkot.val(response.kabkot).trigger("change");
@@ -75,18 +78,15 @@ TABLE_TARGET.on("click", "#item-edit", function() {
       setTimeout(() => {
         kelurahan.val(response.kelurahan).trigger("change");
       }, 700);
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
-  MODAL_DIV_TARGET_LABEL.text("Update Target");
-  MODAL_DIV_TARGET.modal("show");
-  SAVE.unbind().on("click", function(e) {
-    e.preventDefault();
-    ACTION_KASUS.attr("action", base_url + "target/update_");
-    onValidationTarget({ type: "update", id });
-  });
+
+      MODAL_DIV_TARGET_LABEL.text("Update Target");
+      MODAL_DIV_TARGET.modal("show");
+      SAVE.unbind().on("click", function(e) {
+        e.preventDefault();
+        ACTION_TARGET.attr("action", "target/update_");
+        onValidationTarget({ type: "update", id });
+      });
+    });
 });
 
 TABLE_TARGET.on("click", "#item-delete", function() {
@@ -95,21 +95,13 @@ TABLE_TARGET.on("click", "#item-delete", function() {
   SwalFireDelete({ title: "Anda Yakin?", text: "Hapus data Target!" })
     .then(function(result) {
       if (result.isConfirmed) {
-        $.ajax({
-          url: base_url + "target/delete_soft_",
-          type: "POST",
-          data: { id },
-          dataType: "json",
-          success: function(response) {
+        fetchData("target/delete_soft_", "POST", { id })
+          .then(function(response) {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_TARGET);
             }
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
+          });
       }
     });
 });
@@ -120,21 +112,13 @@ TABLE_TARGET_RECYCLE.on("click", "#item-delete", function() {
   SwalFireDelete({ title: "Anda Yakin?", text: "Hapus data Target!" })
     .then(function(result) {
       if (result.isConfirmed) {
-        $.ajax({
-          url: base_url + "target/delete_",
-          type: "POST",
-          data: { id },
-          dataType: "json",
-          success: function(response) {
+        fetchData("target/delete_", "POST", { id })
+          .then(function(response) {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_TARGET_RECYCLE);
             }
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
+          });
       }
     });
 });
@@ -145,21 +129,13 @@ TABLE_TARGET_RECYCLE.on("click", "#item-recycle", function() {
   SwalFireRestore({ title: "Anda Yakin?", text: "Restore data Target!" })
     .then(function(result) {
       if (result.isConfirmed) {
-        $.ajax({
-          url: base_url + "target/restore_",
-          type: "POST",
-          data: { id },
-          dataType: "json",
-          success: function(response) {
+        fetchData("target/restore_", "POST", { id })
+          .then(function(response) {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_TARGET_RECYCLE);
             }
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
+          });
       }
     });
 });
@@ -185,7 +161,7 @@ function onPostTarget(options) {
     "val-nama": nama.val(),
     "val-tempat_lahir": tempat_lahir.val(),
     "val-tanggal_lahir": tanggal_lahir.val(),
-    "val-jenis_kelamin": jenis_kelamin.val(),
+    "val-jenis_kelamin": jenis_kelamin.filter(":checked").val(),
     "val-provinsi": provinsi.val(),
     "val-kabkot": kabkot.val(),
     "val-kecamatan": kecamatan.val(),
@@ -195,12 +171,8 @@ function onPostTarget(options) {
 
   if (options && options.type === "update") data["val-id"] = options.id;
 
-  $.ajax({
-    url: ACTION_KASUS.attr("action"),
-    type: "POST",
-    data,
-    dataType: "json",
-    success: function(response) {
+  fetchData(ACTION_TARGET.attr("action"), "POST", { ...data })
+    .then(function(response) {
       if (response.success) {
         SwalFireSuccess();
         showLoading(false);
@@ -208,9 +180,5 @@ function onPostTarget(options) {
         refreshDataTables(TABLE_TARGET);
         MODAL_DIV_TARGET.modal("hide");
       }
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
+    });
 }

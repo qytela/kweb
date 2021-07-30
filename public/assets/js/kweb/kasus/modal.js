@@ -17,7 +17,7 @@ $("#add-item-kasus").on("click", function() {
   MODAL_DIV_KASUS_LABEL.text("Add Kasus");
   MODAL_DIV_KASUS.modal("show");
   SAVE.unbind().on("click", function() {
-    ACTION_KASUS.attr("action", base_url + "kasus/save_");
+    ACTION_KASUS.attr("action", "kasus/save_");
     onValidationKasus();
   });
 });
@@ -28,27 +28,20 @@ TABLE_KASUS.on("click", "#item-edit", function() {
   resetErrors();
   resetFields([nama, keterangan, users]);
 
-  $.ajax({
-    url: base_url + "kasus/edit_",
-    type: "POST",
-    data: { id },
-    dataType: "json",
-    success: function(response) {
+  fetchData("kasus/edit_", "POST", { id })
+    .then(function(response) {
       nama.val(response.nama);
       keterangan.val(response.keterangan);
       users.val(response.users).trigger("change");
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
-  MODAL_DIV_KASUS_LABEL.text("Update Kasus");
-  MODAL_DIV_KASUS.modal("show");
-  SAVE.unbind().on("click", function(e) {
-    e.preventDefault();
-    ACTION_KASUS.attr("action", base_url + "kasus/update_");
-    onValidationKasus({ type: "update", id });
-  });
+
+      MODAL_DIV_KASUS_LABEL.text("Update Kasus");
+      MODAL_DIV_KASUS.modal("show");
+      SAVE.unbind().on("click", function(e) {
+        e.preventDefault();
+        ACTION_KASUS.attr("action", "kasus/update_");
+        onValidationKasus({ type: "update", id });
+      });
+    });
 });
 
 TABLE_KASUS.on("click", "#item-delete", function() {
@@ -57,21 +50,13 @@ TABLE_KASUS.on("click", "#item-delete", function() {
   SwalFireDelete({ title: "Anda Yakin?", text: "Hapus data Kasus!" })
     .then(function(result) {
       if (result.isConfirmed) {
-        $.ajax({
-          url: base_url + "kasus/delete_soft_",
-          type: "POST",
-          data: { id },
-          dataType: "json",
-          success: function(response) {
+        fetchData("kasus/delete_soft_", "POST", { id })
+          .then(function(response) {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_KASUS);
             }
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
+          });
       }
     });
 });
@@ -82,21 +67,13 @@ TABLE_KASUS_RECYCLE.on("click", "#item-delete", function() {
   SwalFireDelete({ title: "Anda Yakin?", text: "Hapus data Kasus!" })
     .then(function(result) {
       if (result.isConfirmed) {
-        $.ajax({
-          url: base_url + "kasus/delete_",
-          type: "POST",
-          data: { id },
-          dataType: "json",
-          success: function(response) {
+        fetchData("kasus/delete_", "POST", { id })
+          .then(function(response) {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_KASUS_RECYCLE);
             }
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
+          });
       }
     });
 });
@@ -107,21 +84,13 @@ TABLE_KASUS_RECYCLE.on("click", "#item-recycle", function() {
   SwalFireRestore({ title: "Anda Yakin?", text: "Restore data Kasus!" })
     .then(function(result) {
       if (result.isConfirmed) {
-        $.ajax({
-          url: base_url + "kasus/restore_",
-          type: "POST",
-          data: { id },
-          dataType: "json",
-          success: function(response) {
+        fetchData("kasus/restore_", "POST", { id })
+          .then(function(response) {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_KASUS_RECYCLE);
             }
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
+          });
       }
     });
 });
@@ -141,21 +110,15 @@ function onValidationKasus(options) {
   if (options && options.type === "update") {
     onPostKasus(options);
   } else {
-    $.ajax({
-      url: base_url + "kasus/cek_kasus_",
-      type: "POST",
-      data: { "val-nama": nama.val() },
-      dataType: "json",
-      success: function(response) {
+    fetchData("kasus/cek_kasus_", "POST", { "val-nama": nama.val() })
+      .then(function(response) {
         if (!response) {
           showLoading(false);
-          return showErrors(msg);
+          return showErrors("- Kasus sudah ada, silahkan hubungi admin kasus!");
         }
         onPostKasus(options)
-      }
-    });
+      });
   }
-
 }
 
 function onPostKasus(options) {
@@ -167,12 +130,8 @@ function onPostKasus(options) {
 
   if (options && options.type === "update") data["val-id"] = options.id;
 
-  $.ajax({
-    url: ACTION_KASUS.attr("action"),
-    type: "POST",
-    data,
-    dataType: "json",
-    success: function(response) {
+  fetchData(ACTION_KASUS.attr("action"), "POST", { ...data })
+    .then(function(response) {
       if (response.success) {
         SwalFireSuccess();
         showLoading(false);
@@ -180,9 +139,5 @@ function onPostKasus(options) {
         refreshDataTables(TABLE_KASUS);
         MODAL_DIV_KASUS.modal("hide");
       }
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
+    });
 }

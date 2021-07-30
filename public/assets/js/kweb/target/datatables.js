@@ -140,10 +140,11 @@ $("#table-target tbody").on("click", "td", function() {
         $(this.parentElement).removeClass('selected');
         TRACKING_LIST.hide();
       } else {
+        TRACKING_LIST.show();
         table.$('tr.selected').removeClass('selected');
         $(this.parentElement).addClass('selected');
-        TRACKING_LIST.show();
         $("#val-id_target").val(data.id);
+        $("#val-no_target").val(data.no_telp);
         $("#table-tracking").DataTable().ajax.reload();
 
         $("html, body").animate({

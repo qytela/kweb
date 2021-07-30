@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <div id="errors"></div>
-        <form id="action-kasus">
+        <form id="action-target">
           <div class="form-group">
             <label>Kasus</label>
             <div class="input-group">

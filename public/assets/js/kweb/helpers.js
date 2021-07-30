@@ -1,6 +1,22 @@
 var errors = [];
 var ERRORS_CONTANINER = $("#errors");
 
+function fetchData(url, type = "GET", data = {}, headers = {}) {
+  return new Promise(function(resolve) {
+    $.ajax({
+      data, type, headers,
+      url: base_url + url,
+      dataType: "json",
+      success: function(response) {
+        resolve(response);
+      },
+      error: function(error) {
+        console.error(error);
+      }
+    });
+  });
+}
+
 function SwalFireDelete({ title, text }) {
   return new Promise(function(resolve) {
     var swal = Swal.fire({

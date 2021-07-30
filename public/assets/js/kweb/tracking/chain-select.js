@@ -3,7 +3,7 @@ var KABKOT = $("#val-kabkot");
 var KECAMATAN = $("#val-kecamatan");
 var KELURAHAN = $("#val-kelurahan");
 
-fetchData("tracking/get_provinsi_")
+fetchData("tracking/get_provinsi_", "POST")
   .then(function(response) {
     response.map(function(item) {
       PROVINSI.append(new Option(item.nama, item.id));
@@ -26,7 +26,7 @@ KECAMATAN.on("change", function() {
 });
 
 function getKabKot(id) {
-  fetchData("tracking/get_kabkot_", { id })
+  fetchData("tracking/get_kabkot_", "POST", { id })
     .then(function(response) {
       response.map(function(item) {
         KABKOT.append(new Option(item.nama, item.id));
@@ -35,7 +35,7 @@ function getKabKot(id) {
 }
 
 function getKecamatan(id) {
-  fetchData("tracking/get_kecamatan_", { id })
+  fetchData("tracking/get_kecamatan_", "POST", { id })
     .then(function(response) {
       response.map(function(item) {
         KECAMATAN.append(new Option(item.nama, item.id));
@@ -44,27 +44,10 @@ function getKecamatan(id) {
 }
 
 function getKelurahan(id) {
-  fetchData("tracking/get_kelurahan_", { id })
+  fetchData("tracking/get_kelurahan_", "POST", { id })
     .then(function(response) {
       response.map(function(item) {
         KELURAHAN.append(new Option(item.nama, item.id));
       });
     });
-}
-
-function fetchData(url, data = {}) {
-  return new Promise(function(resolve) {
-    $.ajax({
-      url: base_url + url,
-      type: "POST",
-      data,
-      dataType: "json",
-      success: function(response) {
-        resolve(response);
-      },
-      error: function(error) {
-        console.error(error);
-      }
-    });
-  });
 }

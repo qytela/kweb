@@ -1,5 +1,6 @@
 <div class="row tracking-list">
   <input type="hidden" id="val-id_target" value="">
+  <input type="hidden" id="val-no_target" value="">
   <div class="col-12">
     <div class="card">
       <div class="card-header d-flex justify-content-between">
@@ -7,7 +8,6 @@
         <div>
           <btn class="btn btn-rounded btn-info mr-2" id="add-item-tracking">Add Tracking</btn>
           <btn class="btn btn-rounded btn-success mr-2">Refresh</btn>
-          <a href="<?= base_url() ?>kasus/recycle" class="btn btn-rounded btn-danger">Recycle</a>
         </div>
       </div>
       <div class="card-body">
