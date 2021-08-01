@@ -18,7 +18,7 @@ $("#add-item-menu").on("click", function() {
   MODAL_DIV_MENU.modal("show");
   SAVE.unbind().on("click", function() {
     ACTION_MENU.attr("action", "menu/save_");
-    onPostMenu();
+    onValidationMenu();
   })
 });
 
@@ -40,7 +40,7 @@ TABLE_MENU.on("click", "#item-edit", function() {
       MODAL_DIV_MENU.modal("show");
       SAVE.unbind().on("click", function() {
         ACTION_MENU.attr("action", "menu/update_");
-        onPostMenu({ type: "update", id });
+        onValidationMenu({ type: "update", id });
       });
     });
 });
@@ -62,10 +62,14 @@ TABLE_MENU.on("click", "#item-delete", function() {
     });
 });
 
-function onValidationPost(options) {
+function onValidationMenu(options) {
   resetErrors();
 
-  if (!nama.val()) errors.push("Masukkan Nama Role");
+  if (!nama.val()) errors.push("Masukkan Nama Menu");
+  if (!icon.val()) errors.push("Masukkan Icon");
+  if (!label.val()) errors.push("Masukkan Label");
+  if (!url.val()) errors.push("Masukkan URL");
+  if (!urutan.val()) errors.push("Masukkan Urutan");
   if (errors.length > 0) {
     var msg = errors.map(function(item) { return `- ${item}</br>` }).join("");
     return showErrors(msg);

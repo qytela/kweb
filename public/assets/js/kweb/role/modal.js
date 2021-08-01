@@ -15,7 +15,7 @@ $("#add-item-role").on("click", function() {
   MODAL_DIV_ROLE.modal("show");
   SAVE_ROLE.unbind().on("click", function() {
     ACTION_ROLE.attr("action", "role/save_");
-    onValidationPost();
+    onValidationRole();
   })
 });
 
@@ -33,7 +33,7 @@ TABLE_ROLE.on("click", "#item-edit", function() {
       MODAL_DIV_ROLE.modal("show");
       SAVE_ROLE.unbind().on("click", function() {
         ACTION_ROLE.attr("action", "role/update_");
-        onValidationPost({ type: "update", id });
+        onValidationRole({ type: "update", id });
       });
     });
 });
@@ -70,7 +70,7 @@ SAVE_ROLE_PERMISSION.on("click", function() {
     });
 });
 
-function onValidationPost(options) {
+function onValidationRole(options) {
   resetErrors();
 
   if (!nama.val()) errors.push("Masukkan Nama Role");

@@ -53,7 +53,7 @@
             <img alt="image" src="<?= base_url() ?>public/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block"><?= $this->session->userdata('username') ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="#" class="dropdown-item has-icon">
+              <a href="#" class="dropdown-item has-icon" id="password">
                 <i class="fas fa-cog"></i> Password
               </a>
               <div class="dropdown-divider"></div>
@@ -110,6 +110,7 @@
           <?php $row; ?>
         <?php endforeach; ?>
       <?php endif; ?>
+      <?php $this->load->view('auth/password'); ?>
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
@@ -132,6 +133,7 @@
   <script src="<?= base_url() ?>public/assets/plugins/fancytree/dist/jquery.fancytree-all-deps.min.js"></script>
   <script src="<?= base_url() ?>public/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   <script src="<?= base_url() ?>public/assets/js/kweb/helpers.js"></script>
+  <script src="<?= base_url() ?>public/assets/js/kweb/auth/modal.js"></script>
   <script src="<?= base_url() ?>public/assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
