@@ -10,12 +10,8 @@ class User_model extends CI_Model
         $this->datatables->join('tbl_role_user', 'tbl_user.id = tbl_role_user.id_user');
         $this->datatables->join('tbl_role', 'tbl_role_user.id_role = tbl_role.id');
         $this->datatables->where('tbl_user.deleted_at', null);
-        $this->datatables->add_column('view', '<a class="item-edit" href="javascript:;" data="$1" style="color: green;font-size: 20px;">
-                                        <i class="mdi mdi-pencil"></i></a> | 
-                                        <a class="item-delete" href="javascript:;" data="$1" style="color: red;font-size: 20px;">
-                                        <i class="mdi mdi-delete"></i></a> | 
-                                        <a class="item-password" href="javascript:;" data="$1" style="color: blue;font-size: 20px;">
-                                        <i class="mdi mdi-account-key"></i></a>', 'id');
+        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger" id="item-delete" data="$1">Delete</a> <a href="javascript:void(0);" class="btn btn-primary" id="item-edit-password" data="$1">Edit Password</a>',
+                                              'id');
         return $this->datatables->generate();
     }
 

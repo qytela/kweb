@@ -151,6 +151,10 @@ $("#table-target tbody").on("click", "td", function() {
           scrollTop: scroll
         }, 1000);
       }
+    } else if (cek == 'Tap ID') {
+      $("#modalDivTargetTap").modal("show");
+      $("#val-id_target_tap_id").val(data.id);
+      $("#val-tap_id").val(data.tap_id);
     }
   }
 });

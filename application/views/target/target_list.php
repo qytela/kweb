@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-6">
     <div class="card">
-      <div class="card-header d-flex justify-content-between">
-        <h4>Kasus</h4>
-      </div>
       <div class="card-body">
+        <div class="mb-3">
+          <h4 class="title">Kasus</h4>
+        </div>
         <select class="form-control select2" name="val-id_kasus" id="val-id_kasus">
           <option value="">Pilih semua kasus</option>
           <?php foreach ($kasus_data as $row) : ?>

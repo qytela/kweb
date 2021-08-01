@@ -7,10 +7,8 @@ class Menu_model extends CI_Model
     {
         $this->datatables->select('tbl_menu.id, tbl_menu.nama, tbl_menu.icon, tbl_menu.label, tbl_menu.url, tbl_menu.urutan');
         $this->datatables->from('tbl_menu');
-        $this->datatables->add_column('view', '<a class="item-edit" href="javascript:;" data="$1" style="color: green;font-size: 20px;">
-                                        <i class="mdi mdi-pencil"></i></a> | 
-                                        <a class="item-delete" href="javascript:;" data="$1" style="color: red;font-size: 20px;">
-                                        <i class="mdi mdi-delete"></i></a>', 'id');
+        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger" id="item-delete" data="$1">Delete</a>',
+                                              'id');
         return $this->datatables->generate();
     }
 

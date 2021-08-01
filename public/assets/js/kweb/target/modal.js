@@ -1,4 +1,6 @@
 var id_kasus = $("#val-id_kasus_target");
+var id_tap = $("#val-tap_id");
+var id_target_tap = $("#val-id_target_tap_id");
 var nik = $("#val-nik");
 var no_telp = $("#val-no_telp");
 var nama = $("#val-nama");
@@ -15,7 +17,9 @@ var alamat = $("#val-alamat");
 
 var MODAL_DIV_TARGET_LABEL = $("#modalDivTargetLabel");
 var MODAL_DIV_TARGET = $("#modalDivTarget");
+var MODAL_DIV_TARGET_TAP = $("#modalDivTargetTap");
 var SAVE = $("#save");
+var SAVE_TAP = $("#save-tap");
 var ACTION_TARGET = $("#action-target");
 var TABLE_TARGET = $("#table-target");
 var TABLE_TARGET_RECYCLE = $("#table-target-recycle");
@@ -140,6 +144,22 @@ TABLE_TARGET_RECYCLE.on("click", "#item-recycle", function() {
     });
 });
 
+SAVE_TAP.unbind().on("click", function() {
+  showLoading(true);
+
+  fetchData("target/update_tap_id_", "POST", { id: id_target_tap.val(), tap_id: id_tap.val() })
+    .then(function(response) {
+      if (response.success) {
+        SwalFireSuccess();
+        refreshDataTables(TABLE_TARGET);
+        MODAL_DIV_TARGET_TAP.modal("hide");
+      }
+    })
+    .finally(function() {
+      showLoading(true);
+    });
+});
+
 function onValidationTarget(options) {
   resetErrors();
 
@@ -175,10 +195,12 @@ function onPostTarget(options) {
     .then(function(response) {
       if (response.success) {
         SwalFireSuccess();
-        showLoading(false);
         resetErrors();
         refreshDataTables(TABLE_TARGET);
         MODAL_DIV_TARGET.modal("hide");
       }
+    })
+    .finally(function() {
+      showLoading(false);
     });
 }

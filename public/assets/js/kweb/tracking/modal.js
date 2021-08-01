@@ -93,18 +93,22 @@ function onPostTracking(options) {
     "val-operator": operator.val(),
     "val-id_target_tracking": $("#val-id_target").val()
   }
-  
+
   if (options && options.type === "update") data["val-id"] = options.id;
+
+  showLoading(true);
 
   fetchData(ACTION_TRACKING.attr("action"), "POST", { ...data })
     .then(function(response) {
       if (response.success) {
         SwalFireSuccess();
-        showLoading(false);
         resetErrors();
         refreshDataTables(TABLE_TRACKING);
         MODAL_DIV_TRACKING.modal("hide");
       }
+    })
+    .finally(function() {
+      showLoading(false);
     });
 }
 

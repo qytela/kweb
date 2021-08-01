@@ -7,12 +7,8 @@ function fetchData(url, type = "GET", data = {}, headers = {}) {
       data, type, headers,
       url: base_url + url,
       dataType: "json",
-      success: function(response) {
-        resolve(response);
-      },
-      error: function(error) {
-        console.error(error);
-      }
+      success: resolve,
+      error: console.error
     });
   });
 }
@@ -87,13 +83,19 @@ function resetSelect(fields) {
   });
 }
 
+function showHideFields(fields, type) {
+  fields.map(function(item) {
+    $(item)[type]();
+  });
+}
+
 function resetErrors() {
   errors = [];
   ERRORS_CONTANINER.html("");
 }
 
 function showErrors(msg) {
-  return ERRORS_CONTANINER.html(`<div class="alert alert-danger">${msg}</div>`);
+  return ERRORS_CONTANINER.append(`<div class="alert alert-danger">${msg}</div>`);
 }
 
 function showLoading(boolean) {

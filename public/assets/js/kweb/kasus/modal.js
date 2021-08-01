@@ -1,4 +1,3 @@
-var errors = [];
 var nama = $("#val-nama");
 var keterangan = $("#val-keterangan");
 var users = $("#val-users");
@@ -36,8 +35,7 @@ TABLE_KASUS.on("click", "#item-edit", function() {
 
       MODAL_DIV_KASUS_LABEL.text("Update Kasus");
       MODAL_DIV_KASUS.modal("show");
-      SAVE.unbind().on("click", function(e) {
-        e.preventDefault();
+      SAVE.unbind().on("click", function() {
         ACTION_KASUS.attr("action", "kasus/update_");
         onValidationKasus({ type: "update", id });
       });
@@ -113,10 +111,12 @@ function onValidationKasus(options) {
     fetchData("kasus/cek_kasus_", "POST", { "val-nama": nama.val() })
       .then(function(response) {
         if (!response) {
-          showLoading(false);
           return showErrors("- Kasus sudah ada, silahkan hubungi admin kasus!");
         }
         onPostKasus(options)
+      })
+      .finally(function() {
+        showLoading(false);
       });
   }
 }
@@ -134,10 +134,12 @@ function onPostKasus(options) {
     .then(function(response) {
       if (response.success) {
         SwalFireSuccess();
-        showLoading(false);
         resetErrors();
         refreshDataTables(TABLE_KASUS);
         MODAL_DIV_KASUS.modal("hide");
       }
+    })
+    .finally(function() {
+      showLoading(false);
     });
 }

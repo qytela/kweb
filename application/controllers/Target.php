@@ -38,6 +38,7 @@ class Target extends CI_Controller
             ],
             'modals' => [
                 $this->load->view('target/target_form', ['kasus_data' => $kasus_data]),
+                $this->load->view('target/target_form_tap_id'),
                 $this->load->view('tracking/tracking_form')
             ]
         );
