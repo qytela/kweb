@@ -5,8 +5,8 @@
         <h4>Kasus List</h4>
         <div>
           <btn class="btn btn-rounded btn-info mr-2" id="add-item-kasus">Add Kasus</btn>
-          <btn class="btn btn-rounded btn-success mr-2">Refresh</btn>
-          <a href="<?= base_url() ?>kasus/recycle" class="btn btn-rounded btn-danger">Recycle</a>
+          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-kasus', true)">Refresh</btn>
+          <a href="<?= base_url() ?>kasus/recycle" class="btn btn-rounded btn-danger mt-2 mt-md-0">Recycle</a>
         </div>
       </div>
       <div class="card-body">

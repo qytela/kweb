@@ -56,11 +56,18 @@ TABLE_ROLE.on("click", "#item-delete", function() {
 });
 
 SAVE_ROLE_PERMISSION.on("click", function() {
+  var id = SAVE_ROLE_PERMISSION.attr("id_state");
   var data_menu = [];
   $('input[name="check_menus"]:checked').each(function() {
       data_menu.push($(this).val());
   });
-  console.log(data_menu);
+
+  fetchData("role/save_role_menu_", "POST", { id, data_menu })
+    .then(function(response) {
+      if (response.success) {
+        SwalFireSuccess();
+      }
+    });
 });
 
 function onValidationPost(options) {

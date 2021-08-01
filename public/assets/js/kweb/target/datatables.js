@@ -156,5 +156,23 @@ $("#table-target tbody").on("click", "td", function() {
       $("#val-id_target_tap_id").val(data.id);
       $("#val-tap_id").val(data.tap_id);
     }
+  } else {
+    if (cek != 'Action') {
+      if ($(this.parentElement).hasClass('selected')) {
+        $(this.parentElement).removeClass('selected');
+        TRACKING_LIST.hide();
+      } else {
+        TRACKING_LIST.show();
+        table.$('tr.selected').removeClass('selected');
+        $(this.parentElement).addClass('selected');
+        $("#val-id_target").val(data.id);
+        $("#val-no_target").val(data.no_telp);
+        $("#table-tracking").DataTable().ajax.reload();
+
+        $("html, body").animate({
+          scrollTop: scroll
+        }, 1000);
+      }
+    }
   }
 });

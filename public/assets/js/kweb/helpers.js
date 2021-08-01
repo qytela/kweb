@@ -66,7 +66,8 @@ function makeRowCallback() {
   };
 }
 
-function refreshDataTables(element) {
+function refreshDataTables(element, fromView = false) {
+  if (fromView) return $(`#${element}`).DataTable().ajax.reload();
   element.DataTable().ajax.reload();
 }
 

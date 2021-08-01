@@ -9,6 +9,7 @@
         </div>
       </div>
       <div class="card-body">
+        <h4 style="font-style: italic;color: #283593; font-size: 12px;"><span class="text-danger">*</span>note : klik baris target untuk menambahkan menu permission</h4>
         <div class="table-responsive">
           <table class="table table-striped" id="table-role" style="width: 100%;">
             <thead>
@@ -39,12 +40,6 @@
         <div id="loading-action" class="d-none">
           <div class="spinner-border text-primary" role="status"></div>
         </div>
-        <!-- <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Default checkbox
-          </label>
-        </div> -->
       </div>
     </div>
   </div>

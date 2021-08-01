@@ -25,7 +25,7 @@
           <div class="form-group">
             <label>Users <span class="text-danger">*</span></label>
             <div class="input-group">
-              <select class="form-control select2" multiple="multiple" name="val-users[]" id="val-users" data-placeholder="Pilih Users">
+              <select class="form-control select2" multiple="multiple" name="val-users[]" id="val-users" data-placeholder="--Pilih Users--">
                 <?php foreach ($users_data as $row) : ?>
                   <option value="<?= $row->id; ?>"><?= $row->nama; ?></option>
                 <?php endforeach; ?>

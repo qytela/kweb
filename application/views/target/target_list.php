@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <div class="card">
       <div class="card-body">
         <div class="mb-3">
@@ -23,11 +23,12 @@
         <h4>Target List</h4>
         <div>
           <btn class="btn btn-rounded btn-info mr-2" id="add-item-target">Add Target</btn>
-          <btn class="btn btn-rounded btn-success mr-2">Refresh</btn>
-          <a href="<?= base_url() ?>target/recycle" class="btn btn-rounded btn-danger">Recycle</a>
+          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-target', true)">Refresh</btn>
+          <a href="<?= base_url() ?>target/recycle" class="btn btn-rounded btn-danger mt-2 mt-md-0">Recycle</a>
         </div>
       </div>
       <div class="card-body">
+        <h4 style="font-style: italic;color: #283593; font-size: 12px;"><span class="text-danger">*</span>note : klik baris target untuk menambahkan tracking</h4>
         <div class="table-responsive">
           <table class="table table-striped" id="table-target" style="width: 100%;">
             <thead>

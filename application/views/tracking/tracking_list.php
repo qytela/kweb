@@ -7,7 +7,7 @@
         <h4>Tracking List</h4>
         <div>
           <btn class="btn btn-rounded btn-info mr-2" id="add-item-tracking">Add Tracking</btn>
-          <btn class="btn btn-rounded btn-success mr-2">Refresh</btn>
+          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-tracking', true)">Refresh</btn>
         </div>
       </div>
       <div class="card-body">
