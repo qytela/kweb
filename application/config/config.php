@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/kweb/';
+$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/kweb';
 $config['api_mc'] = 'http://172.20.1.6:3019/api/mc/v.1.0.0/';
 $config['api_play'] = 'http://172.20.1.19:3019/api/mc/wav/';
 

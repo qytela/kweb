@@ -29,7 +29,7 @@ class Login extends CI_Controller
         if (strtolower($login->role) == 'admin user') {
             redirect(base_url('user'));
         } else {
-            redirect(base_url('kasus'));
+            redirect(base_url('tree'));
         }
     } else {
       $this->session->set_flashdata('message', 'Username atau password salah!');
