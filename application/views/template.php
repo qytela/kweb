@@ -34,6 +34,9 @@
     .form-group {
       margin-bottom: 0.5rem !important;
     }
+    .popover{
+      max-width: 100%; /* Max Width of the popover (depending on the container!) */
+    }
   </style>
 </head>
 
@@ -132,6 +135,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
   <script src="<?= base_url() ?>public/assets/plugins/fancytree/dist/jquery.fancytree-all-deps.min.js"></script>
   <script src="<?= base_url() ?>public/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/plugins/moment/moment.min.js"></script>
   <script src="<?= base_url() ?>public/assets/js/kweb/helpers.js"></script>
   <script src="<?= base_url() ?>public/assets/js/kweb/auth/modal.js"></script>
   <script src="<?= base_url() ?>public/assets/js/stisla.js"></script>
@@ -150,7 +154,8 @@
   </script>
   <?php if (isset($js)) : ?>
     <script>
-      var base_url = "<?= base_url() ?>" + "index.php/";
+      var base_url = "<?= base_url() ?>";
+      var api_play = "<?= $this->config->item('api_play') ?>";
       var auth = "<?= $this->session->userdata('status'); ?>";
     </script>
     <?php foreach ($js as $row) : ?>

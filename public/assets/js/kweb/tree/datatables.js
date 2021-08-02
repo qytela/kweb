@@ -3,16 +3,18 @@ var tanggal_status = [];
 var event_type_id = [];
 var params = {};
 
-setParams();
-reset();
+var TABLE_TREE = $("#table-tree");
 
-$(".datepicker").datepicker({
+$("#date_awal, #date_akhir").datepicker({
   autoclose: true,
   language: "id",
   format: "dd-mm-yyyy"
 });
 
-$("#table-tree").DataTable({
+reset();
+setParams();
+
+TABLE_TREE.DataTable({
   oLanguage: {
       sProcessing: "loading..."
   },
@@ -128,7 +130,7 @@ $("#table-tree").DataTable({
                   let content = "";
                   content += "<div class='loading-play'>";
                   content += "<div id='loading_run_" + data.EVENT_ID + "'>";
-                  content += "<img src='<?php echo base_url() ?>assets/images/loader-play.gif' width='70%' alt=''>";
+                  content += "<img src='" + base_url + "public/assets/images/loader-play.gif' width='70%' alt=''>";
                   content += "</div>";
                   content += "<div id='loading_success_" + data.EVENT_ID + "'>";
                   content += "</div>";
@@ -137,7 +139,7 @@ $("#table-tree").DataTable({
                   content += "</div>";
                   content += "</div>";
                   let title = "Play Audio <a href='#' class='close' data-dismiss='alert'>&times;</a>"
-                  result = '<button type="button" data-html="true" title="' + title + '" data-toggle="popover" data-content="' + content + '" data="' + data.EVENT_ID + '" class="btn btn-primary btn-xs item-play"><span class="btn-icon-left text-primary"><i class="fas fa-play-circle fa-lg"></i> </span>Play</button>';
+                  result = '<button type="button" data-html="true" title="' + title + '" data-toggle="popover" data-content="' + content + '" data="' + data.EVENT_ID + '" class="btn btn-primary btn-xs item-play"><span class="btn-icon-left text-primary"><i class="fas fa-play-circle fa-lg" style="color: #333;"></i> </span>Play</button>';
               }
               return result;
           },
@@ -150,6 +152,7 @@ $("#table-tree").DataTable({
   "fnDrawCallback": function(oSettings) {
       $('[data-toggle="popover"]').popover({
           html: true,
+          container: 'body'
       });
       $(document).on("click", ".popover .close", function() {
           $(this).parents(".popover").popover('hide');
@@ -158,6 +161,36 @@ $("#table-tree").DataTable({
   order: [
       [1, 'desc']
   ]
+});
+
+TABLE_TREE.on("click", ".item-play", function() {
+  var id = $(this).attr('data');
+  $('#loading_run_' + id).show();
+  $('#loading_success_' + id).hide();
+  $('#loading_failed_' + id).hide();
+  $.ajax({
+    type: 'POST',
+    async: true,
+    url: base_url + 'tree/play_download_',
+    data: {
+      id: id
+    },
+    dataType: 'json',
+    success: function(data) {
+      $('#loading_run_' + id).hide();
+
+      let content = "";
+      content += "<audio controls class='audio-player' data-title='" + id + "' controlsList='nodownload'>";
+      content += "<source id='source_audio_" + id + "' src='" + api_play + "" + id + ".wav' type='audio/mpeg'>";
+      content += "</audio>";
+      $('#loading_success_' + id).html(content);
+        $('#loading_success_' + id).show();
+    },
+    error: function() {
+      $('#loading_run_' + id).hide();
+      $('#loading_failed_' + id).hide();
+    }
+  });
 });
 
 $("#filter").on("click", function() {
@@ -276,6 +309,14 @@ function setTarget(id) {
   return data;
 }
 
+function setEventType() {
+  const searchIDs = $("#cb_event_type input:checkbox:checked").map(function() {
+      return $(this).val();
+  }).get();
+  event_type_id = searchIDs;
+  console.log(searchIDs);
+}
+
 function setParams() {
   params = {
     tap_id: tap_id,
@@ -293,5 +334,5 @@ function reset() {
   $('.selected').html('');
   $('#cb_voice').prop('checked', true);
   $('#cb_sms').prop('checked', true);
-  // setEventType();
+  setEventType();
 }

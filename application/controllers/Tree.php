@@ -143,7 +143,7 @@ class Tree extends CI_Controller
             // if ($tree->EVENT_TYPE == 'sms') {
             // } else {
             $content = '<div id="loading_run_' . $tree->EVENT_ID . '">
-                                <img src="<?php echo base_url() ?>assets/images/loading_tracking.gif" width="15px" alt="">
+                                <img src="<?= base_url() ?>public/assets/images/loading_tracking.gif" width="15px" alt="">
                             </div>
                             <div id="loading_success_' . $tree->EVENT_ID . '">
                                 <audio controls class="iru-tiny-player" data-title="' . $tree->EVENT_ID . '">
