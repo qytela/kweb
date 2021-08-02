@@ -52,6 +52,16 @@ function SwalFireSuccess() {
   });
 }
 
+function SwalFireError(title) {
+  return new Promise(function(resolve) {
+    var swal = Swal.fire({
+      title,
+      icon: "warning"
+    });
+    resolve(swal);
+  });
+}
+
 function makeRowCallback() {
   return $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
     return {
@@ -90,13 +100,19 @@ function showHideFields(fields, type) {
   });
 }
 
-function resetErrors() {
+function resetErrors(element) {
+  var el = ERRORS_CONTANINER;
   errors = [];
-  ERRORS_CONTANINER.html("");
+
+  if (element) el = $(`#${element}`);
+  el.html("");
 }
 
-function showErrors(msg) {
-  return ERRORS_CONTANINER.append(`<div class="alert alert-danger">${msg}</div>`);
+function showErrors(msg, element) {
+  var el = ERRORS_CONTANINER;
+
+  if (element) el = $(`#${element}`);
+  return el.append(`<div class="alert alert-danger">${msg}</div>`);
 }
 
 function showLoading(boolean) {

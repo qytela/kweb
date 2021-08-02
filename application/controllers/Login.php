@@ -27,8 +27,7 @@ class Login extends CI_Controller
         $this->session->set_userdata('username', $login->nama);
         $this->session->set_flashdata('message', 'Welcome ' . $login->username);
         if (strtolower($login->role) == 'admin user') {
-            // redirect(base_url('user'));
-            return 'Admin User';
+            redirect(base_url('user'));
         } else {
             redirect(base_url('kasus'));
         }
