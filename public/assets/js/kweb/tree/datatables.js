@@ -115,7 +115,7 @@ TABLE_TREE.DataTable({
               if (data.EVENT_TYPE == 'sms') {
                   if (prev && prev.length >= 50) {
                       const cut_prev = prev.substring(0, 50);
-                      let title = "SMS Detail <a href='#' class='close' data-dismiss='alert'>&times;</a>"
+                      let title = "SMS Detail <a href='javascript:void(0);' class='close' data-dismiss='alert'>&times;</a>"
                       result = '<a href="javascript:void(0)" class="text-primary" data-html="true" title="' + title + '" data-toggle="popover" data-content="' + data.PREVIEW + '">' + cut_prev + ' ...</a>';
                   } else {
                       result = prev;
