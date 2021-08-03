@@ -25,7 +25,7 @@ class Target_model extends CI_Model
             $this->datatables->where_in('id_kasus', $ids);
         }
         $this->datatables->where('tbl_target.deleted_at', null);
-        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
+        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="item-edit item-edit--margin" id="item-edit" data="$1"><i class="fas fa-pencil-alt"></i></a><a href="javascript:void(0);" class="item-delete" id="item-delete" data="$1"><i class="fas fa-trash"></i></a>',
                                               'id, no_telp');
         return $this->datatables->generate();
     }
@@ -46,7 +46,7 @@ class Target_model extends CI_Model
             $this->datatables->where('id_kasus', $id_kasus);
         }
         $this->datatables->where('tbl_target.deleted_at is not null', null, false);
-        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-recycle" data="$1">Recover</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
+        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="item-edit item-edit--margin" id="item-recycle" data="$1"><i class="fas fa-redo"></i></a><a href="javascript:void(0);" class="item-delete" id="item-delete" data="$1"><i class="fas fa-trash"></i></a>',
                                               'id');
         return $this->datatables->generate();
     }

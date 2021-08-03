@@ -49,7 +49,7 @@
     .costum-table {
       width: 100%;
       color: #000;
-      font-size: 12px;
+      font-size: 10px;
     }
     .fancytree-title {
       font-size: 12px !important;
@@ -75,6 +75,24 @@
     }
     .datepicker .datepicker-switch, .datepicker td, .datepicker th, .form-check-label {
       font-size: 12px !important;
+    }
+    .item-edit {
+      color: #47c363;
+    }
+    .item-edit--margin {
+      margin-right: 10px;
+    }
+    .item-edit-password {
+      color: #6777ef;
+    }
+    .item-edit-password--margin {
+      margin-right: 10px;
+    }
+    .item-delete {
+      color: #fc544b;
+    }
+    .item-delete--margin {
+      margin-right: 10px;
     }
   </style>
 </head>

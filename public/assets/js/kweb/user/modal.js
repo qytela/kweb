@@ -55,7 +55,7 @@ TABLE_USER.on("click", "#item-edit", function() {
 TABLE_USER.on("click", "#item-delete", function() {
   var id = $(this).attr("data");
 
-  SwalFireDelete({ title: "Anda Yakin?", text: "Hapus data Tracking!" })
+  SwalFireDelete({ title: "Anda Yakin?", text: "Hapus data User!" })
     .then(function(result) {
       if (result.isConfirmed) {
         fetchData("user/delete_", "POST", { id })

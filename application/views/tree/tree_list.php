@@ -14,7 +14,7 @@
         <div class="row">
           <div class="col-12 col-md-4 col-xl-6">
             <h4 style="color: #000; font-size: 12px;">Selected:</h4>
-            <ol class="selected" style="color: #000; margin-left: -15px;"></ol>
+            <ol class="selected" style="font-size: 10px; color: #000; margin-left: -15px;"></ol>
           </div>
           <div class="col-12 col-md-8 col-xl-6">
             <div class="row" id="cb_event_type">

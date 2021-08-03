@@ -23,8 +23,8 @@ $("#add-item-tracking").on("click", function() {
   fetchData("tracking/get_operator_", "POST", { prefix: no_target.val() })
     .then(function(response) {
       no_tracking.val(no_target.val());
-      mulai_aktif.val(makePeriode().mulai_aktif);
-      akhir_aktif.val(makePeriode().akhir_aktif);
+      mulai_aktif.val(makePeriode().mulai_aktif_);
+      akhir_aktif.val(makePeriode().akhir_aktif_);
       operator.val(response.nm_operator).trigger("change");
 
       MODAL_DIV_TRACKING_LABEL.text("Add Tracking");
@@ -44,8 +44,8 @@ TABLE_TRACKING.on("click", "#item-edit", function() {
   fetchData("tracking/edit_", "POST", { id })
     .then(function(response) {
       no_tracking.val(response.no_tracking);
-      mulai_aktif.val(makePeriode().mulai_aktif);
-      akhir_aktif.val(makePeriode().akhir_aktif);
+      mulai_aktif.val(makePeriode().mulai_aktif_);
+      akhir_aktif.val(makePeriode().akhir_aktif_);
       operator.val(response.operator).trigger("change");
       operator.prop("disabled", true);
 
@@ -115,12 +115,12 @@ function onPostTracking(options) {
 }
 
 function makePeriode() {
-  var mulai_aktif_ = new Date();
-  var mulai_aktif = ("0" + mulai_aktif_.getDate()).slice(-2) + '-' + ("0" + (mulai_aktif_.getMonth() + 1)).slice(-2) + '-' + mulai_aktif_.getFullYear();
-  var akhir_aktif_ = new Date();
-  var akhir_aktif = ("0" + akhir_aktif_.getDate()).slice(-2) + '-' + ("0" + (akhir_aktif_.getMonth() + 1)).slice(-2) + '-' + akhir_aktif_.getFullYear();
+  var mulai_aktif__ = new Date();
+  var mulai_aktif_ = ("0" + mulai_aktif__.getDate()).slice(-2) + '-' + ("0" + (mulai_aktif__.getMonth() + 1)).slice(-2) + '-' + mulai_aktif__.getFullYear();
+  var akhir_aktif__ = new Date();
+  var akhir_aktif_ = ("0" + akhir_aktif__.getDate()).slice(-2) + '-' + ("0" + (akhir_aktif__.getMonth() + 2)).slice(-2) + '-' + akhir_aktif__.getFullYear();
 
-  return { mulai_aktif, akhir_aktif };
+  return { mulai_aktif_, akhir_aktif_ };
 }
 
 function makeDateStatus(date) {

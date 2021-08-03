@@ -17,6 +17,17 @@
             </div>
           </div>
           <div class="form-group">
+            <label>Operator</label>
+            <div class="input-group">
+              <select class="form-control select2" name="val-operator" id="val-operator" data-placeholder="Pilih Operator">
+                <option value="TELKOMSEL">TELKOMSEL</option>
+                <option value="XL">XL</option>
+                <option value="SMARTFREN">SMARTFREN</option>
+                <option value="INDOSAT">INDOSAT</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
             <label>Periode Mulai Aktif</label>
             <div class="input-group">
               <input type="text" class="form-control inputmask" placeholder="Masukkan Periode Mulai Aktif..." name="val-mulai_aktif" id="val-mulai_aktif" data-mask="99-99-9999">
@@ -53,17 +64,6 @@
             <label>Tanggal Status</label>
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Masukkan Tanggal Status..." name="val-tanggal_status" id="val-tanggal_status" readonly>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Operator</label>
-            <div class="input-group">
-              <select class="form-control select2" name="val-operator" id="val-operator" data-placeholder="Pilih Operator">
-                <option value="TELKOMSEL">TELKOMSEL</option>
-                <option value="XL">XL</option>
-                <option value="SMARTFREN">SMARTFREN</option>
-                <option value="INDOSAT">INDOSAT</option>
-              </select>
             </div>
           </div>
         </form>
