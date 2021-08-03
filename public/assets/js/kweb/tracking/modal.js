@@ -14,6 +14,8 @@ var SAVE_TRACKING = $("#save-tracking");
 var ACTION_TRACKING = $("#action-tracking");
 var TABLE_TRACKING = $("#table-tracking");
 
+reset();
+
 $("#add-item-tracking").on("click", function() {
   no_tracking.val(no_target.val());
   tanggal_status.val(makeDateStatus(new Date()));
@@ -126,4 +128,9 @@ function makeDateStatus(date) {
   var tanggal_status = ("0" + tanggal_status_.getDate()).slice(-2) + '-' + ("0" + (tanggal_status_.getMonth() + 1)).slice(-2) + '-' + tanggal_status_.getFullYear();
 
   return tanggal_status;
+}
+
+function reset() {
+  mulai_aktif.datepicker("setDate", moment().format("DD-MM-YYYY"));
+  akhir_aktif.datepicker("setDate", moment().add("1", "M").format("DD-MM-YYYY"));
 }
