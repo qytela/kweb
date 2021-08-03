@@ -27,7 +27,7 @@
                 <div class="form-group">
                   <label>Tanggal Awal</label>
                   <input type="text" class="datepicker form-control" name="date_awal" id="date_awal" data-mask="99-99-9999">
-                  <span>DD-MM-YYYY</span>
+                  <span class="date-label">DD-MM-YYYY</span>
                 </div>
               </div>
               <div class="ml-3">
@@ -40,7 +40,7 @@
                 <div class="form-group">
                   <label>Tanggal Akhir</label>
                   <input type="text" class="datepicker form-control" name="date_akhir" id="date_akhir" data-mask="99-99-9999">
-                  <span>DD-MM-YYYY</span>
+                  <span class="date-label">DD-MM-YYYY</span>
                 </div>
               </div>
             </div>

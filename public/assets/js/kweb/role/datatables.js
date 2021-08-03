@@ -92,7 +92,7 @@ function makeCheckboxMenu() {
       for (i = 0; i < data.length; i++) {
         checkboxmenus += `<div class="form-check mb-3">`;
         checkboxmenus += `<input class="form-check-input" type="checkbox" name="check_menus" id="menu_${data[i].id}" value="${data[i].id}">`;
-        checkboxmenus += `<label class="form-check-label ml-1" style="font-size: 18px;">${data[i].label}</label>`
+        checkboxmenus += `<label class="form-check-label form-check-label-custom ml-1">${data[i].label}</label>`
         checkboxmenus += `</div>`;
       }
       $('#table-role-permission').html(checkboxmenus);

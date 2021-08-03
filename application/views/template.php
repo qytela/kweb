@@ -31,11 +31,17 @@
       margin-bottom: 0;
     }
     input[type=checkbox] {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
     .form-group {
       margin-bottom: 0.5rem !important;
+    }
+    .form-check-label {
+      font-size: 16px !important;
+    }
+    .date-label {
+      font-size: 12px;
     }
     .popover{
       max-width: 100%;
