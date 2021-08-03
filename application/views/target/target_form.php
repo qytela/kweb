@@ -39,80 +39,82 @@
               <input type="text" class="form-control" placeholder="Masukkan Nama..." name="val-nama" id="val-nama">
             </div>
           </div>
-          <!-- <div class="form-group">
-            <label>Tempat/Tanggal Lahir</label>
-            <div class="row">
-              <div class="col-6">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Masukkan Tempat Lahir..." name="val-tempat_lahir" id="val-tempat_lahir">
+          <div style="display: none;">
+            <div class="form-group">
+              <label>Tempat/Tanggal Lahir</label>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Masukkan Tempat Lahir..." name="val-tempat_lahir" id="val-tempat_lahir">
+                  </div>
                 </div>
-              </div>
-              <div class="col-6">
-                <div class="input-group">
-                  <input type="date" class="form-control" placeholder="Masukkan Tanggal Lahir..." name="val-tanggal_lahir" id="val-tanggal_lahir">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Jenis Kelamin</label>
-            <div class="row">
-              <div class="col-6">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="val-jenis_kelamin" id="val-jenis_kelamin-l" value="1" checked>
-                  <label class="form-check-label">
-                    Laki-laki
-                  </label>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="val-jenis_kelamin" id="val-jenis_kelamin-p" value="0">
-                  <label class="form-check-label">
-                    Perempuan
-                  </label>
+                <div class="col-6">
+                  <div class="input-group">
+                    <input type="date" class="form-control" placeholder="Masukkan Tanggal Lahir..." name="val-tanggal_lahir" id="val-tanggal_lahir">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Provinsi</label>
-            <div class="input-group">
-              <select class="form-control select2" name="val-provinsi" id="val-provinsi" data-placeholder="--Pilih Provinsi--">
-                <option value=""></option>
-              </select>
+            <div class="form-group">
+              <label>Jenis Kelamin</label>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" name="val-jenis_kelamin" id="val-jenis_kelamin-l" value="1" checked>
+                    <label class="form-check-label">
+                      Laki-laki
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" name="val-jenis_kelamin" id="val-jenis_kelamin-p" value="0">
+                    <label class="form-check-label">
+                      Perempuan
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Provinsi</label>
+              <div class="input-group">
+                <select class="form-control select2" name="val-provinsi" id="val-provinsi" data-placeholder="--Pilih Provinsi--">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Kabupaten/Kota</label>
+              <div class="input-group">
+                <select class="form-control select2" name="val-kabkot" id="val-kabkot" data-placeholder="--Pilih Kabupaten/Kota--">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Kecamatan</label>
+              <div class="input-group">
+                <select class="form-control select2" name="val-kecamatan" id="val-kecamatan" data-placeholder="--Pilih Kecamatan--">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Kelurahan</label>
+              <div class="input-group">
+                <select class="form-control select2" name="val-kelurahan" id="val-kelurahan" data-placeholder="--Pilih Kelurahan--">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Alamat</label>
+              <div class="input-group">
+                <textarea class="form-control" placeholder="Masukkan Alamat..." name="val-alamat" id="val-alamat" rows="5" style="height: 100px;"></textarea>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label>Kabupaten/Kota</label>
-            <div class="input-group">
-              <select class="form-control select2" name="val-kabkot" id="val-kabkot" data-placeholder="--Pilih Kabupaten/Kota--">
-                <option value=""></option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Kecamatan</label>
-            <div class="input-group">
-              <select class="form-control select2" name="val-kecamatan" id="val-kecamatan" data-placeholder="--Pilih Kecamatan--">
-                <option value=""></option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Kelurahan</label>
-            <div class="input-group">
-              <select class="form-control select2" name="val-kelurahan" id="val-kelurahan" data-placeholder="--Pilih Kelurahan--">
-                <option value=""></option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Alamat</label>
-            <div class="input-group">
-              <textarea class="form-control" placeholder="Masukkan Alamat..." name="val-alamat" id="val-alamat" rows="5" style="height: 100px;"></textarea>
-            </div>
-          </div> -->
         </form>
       </div>
       <div class="modal-footer" style="background-color: #f7f9f9 !important;">

@@ -152,11 +152,11 @@ $("#table-target tbody").on("click", "td", function() {
         }, 1000);
       }
     } else if (cek == 'Tap ID') {
-      fetchApiMc("gettapid", "POST", { msisdn: data.no_telp })
+      fetchApiMc("gettapid", "POST", { msisdn: parseInt(data.no_telp) })
         .then(function(response) {
           var tab_list = '';
           var list = response.data.map(el => {
-            return '<div class="tapid mt-1"><span>' + el + '</span></div>';
+            return '<div class="tapid mt-1"><span>' + el.tap_id + '</span></div>';
           });
           list.forEach(element => {
             tab_list += element;
