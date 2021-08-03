@@ -28,7 +28,7 @@ class Tree extends CI_Controller
     public function index()
     {
         $data = array(
-            'page' => 'Tree',
+            'page' => 'Event List',
             'js' => [
                 'public/assets/js/kweb/tree/datatables.js'
             ]

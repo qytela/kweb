@@ -224,6 +224,7 @@ class Kasus_model extends CI_Model {
         $this->db->join('tbl_kasus_user', 'tbl_kasus.id = tbl_kasus_user.id_kasus');
         $this->db->join('tbl_user', 'tbl_kasus_user.id_user = tbl_user.id');
         $this->db->where('tbl_user.id', $id);
+        $this->db->where('tbl_kasus.deleted_at', null);
       }
       $this->db->order_by('tbl_kasus.nama', 'asc');
       $query = $this->db->get('tbl_kasus');

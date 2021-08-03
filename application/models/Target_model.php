@@ -6,6 +6,8 @@ class Target_model extends CI_Model
     function get_all()
     {
         $id_kasus = $this->input->post('id');
+        $auth = $this->session->userdata('status');
+        $query = $this->db->select('id_kasus')->where('id_user', 22)->get('tbl_kasus_user');
         $this->datatables->select("tbl_target.id, tbl_target.nama, to_char(tbl_target.no_telp, '999999999999999') as no_telp, tbl_target.alamat, provinsi.nama as provinsi, kabkot.nama as kabkot, kecamatan.nama as kecamatan, kelurahan.nama as kelurahan, tbl_kasus.nama as kasus, tbl_target.tap_id, (select to_char(mulai_aktif, 'YYYY-MM-DD') from tbl_tracking where tbl_tracking.id_target = tbl_target.id order by tracking_id desc limit 1) as tanggal_mulai_aktif, (select to_char(akhir_aktif, 'YYYY-MM-DD') from tbl_tracking where tbl_tracking.id_target = tbl_target.id order by tracking_id desc limit 1) as tanggal_akhir_aktif, (select to_char(tanggal_status, 'YYYY-MM-DD') from tbl_tracking where tbl_tracking.id_target = tbl_target.id order by tracking_id desc limit 1) as tanggal_status, (select upper(tmp_status_target) from tbl_tracking where tbl_tracking.id_target = tbl_target.id order by tracking_id desc limit 1) as tmp_status_target");
         $this->datatables->from('tbl_target');
         $this->datatables->join('provinsi', 'provinsi.id = tbl_target.provinsi', 'left');
@@ -15,8 +17,12 @@ class Target_model extends CI_Model
         $this->datatables->join('tbl_kasus', 'tbl_kasus.id = tbl_target.id_kasus', 'left');
         if ($id_kasus != '') {
             $this->datatables->where('id_kasus', $id_kasus);
-        } else {
-            $this->datatables->where_in('id_kasus', array(14, 15));
+        } else if ($auth == 'user') {
+            $ids = [];
+            foreach ($query->result() as $row) {
+                $ids[] = $row->id_kasus;
+            }
+            $this->datatables->where_in('id_kasus', $ids);
         }
         $this->datatables->where('tbl_target.deleted_at', null);
         $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
