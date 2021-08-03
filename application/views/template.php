@@ -37,14 +37,8 @@
     .form-group {
       margin-bottom: 0.5rem !important;
     }
-    .form-check-label {
-      font-size: 12px !important;
-    }
     .form-control--small {
       height: calc(1.5em + .5rem + 2px) !important;
-    }
-    .date-label {
-      font-size: 12px;
     }
     .popover{
       max-width: 100%;
@@ -75,6 +69,9 @@
     }
     .section .section-header h1 {
       font-size: 14px;
+    }
+    .datepicker .datepicker-switch, .datepicker td, .datepicker th, .date-label, .form-check-label {
+      font-size: 12px !important;
     }
   </style>
 </head>
