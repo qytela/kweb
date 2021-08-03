@@ -75,9 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => '172.20.1.1',
+	'port' => '5430',
 	'username' => 'postgres',
-	'password' => '123123aa',
+	'password' => 'postgres',
 	'database' => 'spyglasskw',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
