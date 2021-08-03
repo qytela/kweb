@@ -22,6 +22,7 @@
               <textarea class="form-control" placeholder="Masukkan keterangan..." name="val-keterangan" id="val-keterangan" rows="5" style="height: 100px;"></textarea>
             </div>
           </div>
+          <?php if ($this->session->userdata('status') != 'user') : ?>
           <div class="form-group">
             <label>Users <span class="text-danger">*</span></label>
             <div class="input-group">
@@ -32,6 +33,7 @@
               </select>
             </div>
           </div>
+          <?php endif; ?>
         </form>
       </div>
       <div class="modal-footer" style="background-color: #f7f9f9 !important;">

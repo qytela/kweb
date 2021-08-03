@@ -97,7 +97,7 @@ function onValidationKasus(options) {
   resetErrors();
 
   if (!nama.val()) errors.push("Masukkan Kasus");
-  if (users.val().length === 0) errors.push("Pilih Users");
+  if (auth != 'user' && users.val().length === 0) errors.push("Pilih Users");
   if (errors.length > 0) {
     var msg = errors.map(function(item) { return `- ${item}</br>` }).join("");
     return showErrors(msg);
@@ -125,7 +125,7 @@ function onPostKasus(options) {
   var data = {
     "val-nama": nama.val(),
     "val-keterangan": keterangan.val(),
-    "val-users[]": users.val()
+    "val-users[]": auth == 'user' ? id : users.val()
   }
 
   if (options && options.type === "update") data["val-id"] = options.id;

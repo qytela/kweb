@@ -5,7 +5,7 @@ var c_new_password = $("#val-password_update_2");
 var MODAL_DIV_PASSWORD = $("#modalDivPassword");
 var SAVE_PASSWORD = $("#save-password");
 
-$("#password").on("click", function() {
+$("#password-modal").on("click", function() {
   MODAL_DIV_PASSWORD.modal("show");
   SAVE_PASSWORD.unbind().on("click", function() {
     onValidationPassword();

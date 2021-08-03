@@ -39,7 +39,7 @@
               <input type="text" class="form-control" placeholder="Masukkan Nama..." name="val-nama" id="val-nama">
             </div>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label>Tempat/Tanggal Lahir</label>
             <div class="row">
               <div class="col-6">
@@ -112,7 +112,7 @@
             <div class="input-group">
               <textarea class="form-control" placeholder="Masukkan Alamat..." name="val-alamat" id="val-alamat" rows="5" style="height: 100px;"></textarea>
             </div>
-          </div>
+          </div> -->
         </form>
       </div>
       <div class="modal-footer" style="background-color: #f7f9f9 !important;">

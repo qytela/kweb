@@ -54,6 +54,9 @@
       color: #000;
       font-size: 12px;
     }
+    .fancytree-title {
+      font-size: 10px;
+    }
     .select2-container .select2-search--inline .select2-search__field {
       margin-top: 8.5px;
       margin-left: 0;
@@ -62,7 +65,7 @@
       margin-top: 8.5px;
     }
     .section .section-header h1 {
-      font-size: 16px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -82,7 +85,7 @@
             <img alt="image" src="<?= base_url() ?>public/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block"><?= $this->session->userdata('username') ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="#" class="dropdown-item has-icon" id="password">
+              <a href="#" class="dropdown-item has-icon" id="password-modal">
                 <i class="fas fa-cog"></i> Password
               </a>
               <div class="dropdown-divider"></div>
@@ -96,10 +99,10 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="#">KWEB</a>
+            <a href="#">WEBMON</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="#">KWEB</a>
+            <a href="#">WM</a>
           </div>
           <ul class="sidebar-menu">
             <?php
@@ -123,10 +126,6 @@
         <section class="section">
           <div class="section-header">
             <h1><?= $page; ?></h1>
-            <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="#"><?= $page; ?></a></div>
-            </div>
           </div>
 
           <div class="section-body">
@@ -182,6 +181,7 @@
     <script>
       var base_url = "<?= base_url() ?>";
       var api_play = "<?= $this->config->item('api_play') ?>";
+      var id = "<?= $this->session->userdata('id'); ?>"
       var auth = "<?= $this->session->userdata('status'); ?>";
     </script>
     <?php foreach ($js as $row) : ?>

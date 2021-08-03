@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-12 col-md-3">
     <div class="card">
@@ -11,11 +12,11 @@
           <h4 class="title">Filter Event List</h4>
         </div>
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-4 col-xl-6">
             <h4 style="color: #000; font-size: 16px;">Selected:</h4>
             <ol class="selected" style="color: #000; margin-left: -15px;"></ol>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-8 col-xl-6">
             <div class="row" id="cb_event_type">
               <div class="ml-3">
                 <div class="form-check mb-2">

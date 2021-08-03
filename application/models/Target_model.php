@@ -15,6 +15,8 @@ class Target_model extends CI_Model
         $this->datatables->join('tbl_kasus', 'tbl_kasus.id = tbl_target.id_kasus', 'left');
         if ($id_kasus != '') {
             $this->datatables->where('id_kasus', $id_kasus);
+        } else {
+            $this->datatables->where_in('id_kasus', array(14, 15));
         }
         $this->datatables->where('tbl_target.deleted_at', null);
         $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
