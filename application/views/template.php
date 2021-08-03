@@ -16,6 +16,7 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <link href="<?= base_url() ?>public/assets/plugins/fancytree/dist/skin-win8/ui.fancytree.css" rel="stylesheet" type="text/css">
   <link href="<?= base_url() ?>public/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+  <link href="<?= base_url() ?>public/assets/plugins/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/style.css">
@@ -37,12 +38,27 @@
       margin-bottom: 0.5rem !important;
     }
     .popover{
-      max-width: 100%; /* Max Width of the popover (depending on the container!) */
+      max-width: 100%;
+    }
+    thead th {
+      white-space: nowrap;
+    }
+    .costum-table {
+      width: 100%;
+      color: #000;
+      font-size: 12px;
+    }
+    .select2-container .select2-search--inline .select2-search__field {
+      margin-top: 8.5px;
+      margin-left: 0;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice, .select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option--highlighted[aria-selected] {
+      margin-top: 8.5px;
     }
   </style>
 </head>
 
-<body>
+<body class="sidebar-mini">
   <div id="app">
     <div class="main-wrapper">
       <div class="navbar-bg"></div>
@@ -50,7 +66,6 @@
         <div class="mr-auto">
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
           </ul>
         </div>
         <ul class="navbar-nav navbar-right">
@@ -118,10 +133,7 @@
       <?php $this->load->view('auth/password'); ?>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
-        </div>
-        <div class="footer-right">
-          2.3.0
+          Copyright &copy; ATLAS
         </div>
       </footer>
     </div>
@@ -137,6 +149,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
   <script src="<?= base_url() ?>public/assets/plugins/fancytree/dist/jquery.fancytree-all-deps.min.js"></script>
   <script src="<?= base_url() ?>public/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/plugins/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
   <script src="<?= base_url() ?>public/assets/plugins/moment/moment.min.js"></script>
   <script src="<?= base_url() ?>public/assets/js/kweb/helpers.js"></script>
   <script src="<?= base_url() ?>public/assets/js/kweb/auth/modal.js"></script>
@@ -152,7 +165,9 @@
 
   <!-- Page Specific JS File -->
   <script>
-    $(".select2").select2();
+    $(".select2").select2({
+      dropdownAutoWidth: true
+    });
   </script>
   <?php if (isset($js)) : ?>
     <script>

@@ -1,102 +1,104 @@
+
 <!DOCTYPE html>
-<html lang="en" class="h-100" id="">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Spyglass K Web</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/images/favicon.png">
-    <!-- Custom Stylesheet -->
-    <link href="<?= base_url() ?>main/css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Login &mdash; Stisla</title>
 
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- CSS Libraries -->
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/style.css">
+  <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/components.css">
+
+  <style>
+    .card.card-primary {
+      border-top: 2px solid #fc544b;
+    }
+  </style>
 </head>
 
-<body class="h-100" background="<?= base_url() ?>public/assets/images/landing-page.jpg">
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <div class="login-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="form-input-content login-form">
-                        <?php
-                        $message = $this->session->flashdata('message');
-                        if ($message) {
-                        ?>
-                            <div class="alert alert-danger alert-dismissible fade show">
-                                <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                </button>
-                                <strong>
-                                    <i class="ace-icon fa fa-user-times"></i>
-                                </strong>
-                                <?php echo $message ?>
-                            </div>
-                        <?php } ?>
-                        <div class="card">
-                            <div class="card-body">
-                                <h2 class="text-center mt-4">Spyglass K Web</h2>
-                                <div class="logo text-center">
-                                    <img src="<?= base_url() ?>public/assets/images/f-logo-koopsus.png" width="100" alt="">
-                                </div>
-                                <h4 class="text-center mt-4">Log into Your Account</h4>
-                                <form class="mt-5 mb-5" action="<?= base_url() ?>login/login_action" method="POST">
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="username" class="form-control" placeholder="Masukkan Username" name="username" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" placeholder="Masukkan Password" name="password" required>
-                                    </div>
-                                    <!-- <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <div class="form-check p-l-0">
-                                                <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
-                                                <label class="form-check-label ml-3" for="basic_checkbox_1">Check me out</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6 text-right"><a href="javascript:void()">Forgot Password?</a>
-                                        </div>
-                                    </div> -->
-                                    <div class="text-center mb-4 mt-4">
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
-                                    </div>
-                                </form>
-                                <!-- <div class="text-center">
-                                    <h5 class="mb-5">Or with Login</h5>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-facebook"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                        <li class="list-inline-item m-t-10"><a href="javascript:void()" class="btn btn-google-plus"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                    </ul>
-                                    <p class="mt-5">Dont have an account? <a href="javascript:void()">Register Now</a>
-                                    </p>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<body>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <div class="login-brand">
+              <h2 style="color: #000;">K Web</h2>
+              <!-- <img src="<?= base_url() ?>public/assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle"> -->
             </div>
-        </div>
-    </div>
-    <!-- #/ container -->
-    <!-- Common JS -->
-    <script src="<?= base_url() ?>main/common/common.min.js"></script>
-    <script src="<?= base_url() ?>main/js/custom.min.js"></script>
-    <script src="<?= base_url() ?>main/js/settings.js"></script>
-    <script src="<?= base_url() ?>main/js/gleek.js"></script>
-</body>
 
+          <?php $message = $this->session->flashdata('message'); ?>
+          <?php if ($message) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    <i class="ace-icon fa fa-user-times"></i>
+                </strong>
+                <?= $message ?>
+            </div>
+            <?php endif; ?>
+            <div class="card card-primary">
+              <div class="card-header"><h4>Log into Your Account</h4></div>
+              <div class="card-body">
+                <form method="POST" action="<?= base_url() ?>login/login_action" class="needs-validation" novalidate="">
+                  <div class="form-group">
+                    <label for="email">Username</label>
+                    <input id="text" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+                    <div class="invalid-feedback">
+                      Please fill in your email
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="d-block">
+                        <label for="password" class="control-label">Password</label>
+                    </div>
+                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <div class="invalid-feedback">
+                      please fill in your password
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-danger btn-lg btn-block" tabindex="4">
+                      Login
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+            <div class="simple-footer">
+              Copyright &copy; ATLAS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="<?= base_url() ?>public/assets/js/stisla.js"></script>
+
+  <!-- JS Libraies -->
+
+  <!-- Template JS File -->
+  <script src="<?= base_url() ?>public/assets/js/scripts.js"></script>
+  <script src="<?= base_url() ?>public/assets/js/custom.js"></script>
+
+  <!-- Page Specific JS File -->
+</body>
 </html>

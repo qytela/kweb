@@ -5,13 +5,13 @@
         <h4>Role List</h4>
         <div>
           <btn class="btn btn-rounded btn-info mr-2" id="add-item-role">Add Role</btn>
-          <btn class="btn btn-rounded btn-success mr-2">Refresh</btn>
+          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-role', true)">Refresh</btn>
         </div>
       </div>
       <div class="card-body">
         <h4 style="font-style: italic;color: #283593; font-size: 12px;"><span class="text-danger">*</span>note : klik baris target untuk menambahkan menu permission</h4>
         <div class="table-responsive">
-          <table class="table table-striped" id="table-role" style="width: 100%;">
+          <table class="table table-striped costum-table" id="table-role">
             <thead>
               <tr>
                 <th width="50px">No</th>

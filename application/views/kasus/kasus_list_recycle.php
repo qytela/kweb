@@ -9,7 +9,7 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped" id="table-kasus-recycle" style="width: 100%;">
+          <table class="table table-striped costum-table" id="table-kasus-recycle">
             <thead>
               <tr>
                 <th width="50px">No</th>

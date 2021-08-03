@@ -17,7 +17,7 @@ class Kasus_model extends CI_Model {
       $this->datatables->join('tbl_user', 'tbl_kasus_user.id_user = tbl_user.id');
       $this->datatables->where('tbl_user.id', $id);
     }
-    $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger" id="item-delete" data="$1">Delete</a>',
+    $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
                                           'id, no_telp');
     return $this->datatables->generate();
   }
@@ -34,7 +34,7 @@ class Kasus_model extends CI_Model {
       $this->datatables->join('tbl_user', 'tbl_kasus_user.id_user = tbl_user.id');
       $this->datatables->where('tbl_user.id', $id);
     }
-    $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success" id="item-recycle" data="$1">Recover</a> <a href="javascript:void(0);" class="btn btn-danger" id="item-delete" data="$1">Delete</a>',
+    $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-recycle" data="$1">Recover</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
                                           'id');
     return $this->datatables->generate();
   }

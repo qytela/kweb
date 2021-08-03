@@ -19,13 +19,13 @@
           <div class="form-group">
             <label>Periode Mulai Aktif</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Masukkan Periode Mulai Aktif..." name="val-mulai_aktif" id="val-mulai_aktif">
+              <input type="text" class="form-control inputmask" placeholder="Masukkan Periode Mulai Aktif..." name="val-mulai_aktif" id="val-mulai_aktif" data-mask="99-99-9999">
             </div>
           </div>
           <div class="form-group">
             <label>Periode Akhir Aktif</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Masukkan Periode Akhir Aktif..." name="val-akhir_aktif" id="val-akhir_aktif">
+              <input type="text" class="form-control inputmask" placeholder="Masukkan Periode Akhir Aktif..." name="val-akhir_aktif" id="val-akhir_aktif" data-mask="99-99-9999">
             </div>
           </div>
           <div class="form-group">

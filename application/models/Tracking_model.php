@@ -343,7 +343,7 @@ class Tracking_model extends CI_Model
                                 to_char(akhir_aktif, 'YYYY-MM-DD') as akhir_aktif, status_target, operator");
         $this->datatables->from('tbl_tracking');
         $this->datatables->where('tbl_tracking.id_target', $id_target);
-        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger" id="item-delete" data="$1">Delete</a>',
+        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
                                               'tracking_id');
         return $this->datatables->generate();
     }

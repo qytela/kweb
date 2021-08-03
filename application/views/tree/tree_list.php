@@ -58,7 +58,7 @@
     <div class="card">
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped" id="table-tree" style="width: 100%;">
+          <table class="table table-striped costum-table" id="table-tree">
             <thead>
               <tr>
                 <th>No</th>

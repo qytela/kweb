@@ -77,6 +77,7 @@ TABLE_TRACKING.on("click", "#item-delete", function() {
             if (response.success) {
               SwalFireSuccess();
               refreshDataTables(TABLE_TRACKING);
+              refreshDataTables(TABLE_TARGET);
             }
           });
       }
@@ -104,6 +105,7 @@ function onPostTracking(options) {
         SwalFireSuccess();
         resetErrors();
         refreshDataTables(TABLE_TRACKING);
+        refreshDataTables(TABLE_TARGET);
         MODAL_DIV_TRACKING.modal("hide");
       }
     })

@@ -7,7 +7,7 @@ class Role_model extends CI_Model
     {
         $this->datatables->select('tbl_role.id, tbl_role.nama');
         $this->datatables->from('tbl_role');
-        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger" id="item-delete" data="$1">Delete</a>',
+        $this->datatables->add_column('view', '<a href="javascript:void(0);" class="btn btn-success btn-sm" id="item-edit" data="$1">Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm" id="item-delete" data="$1">Delete</a>',
                                               'id');
         return $this->datatables->generate();
     }
