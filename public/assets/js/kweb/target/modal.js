@@ -24,6 +24,7 @@ var ACTION_TARGET = $("#action-target");
 var TABLE_TARGET = $("#table-target");
 var TABLE_TARGET_RECYCLE = $("#table-target-recycle");
 var TRACKING_LIST = $(".tracking-list");
+var TAP_ID_LIST = $("#tap-id-list");
 
 $("#add-item-target").on("click", function() {
   resetErrors();
@@ -142,6 +143,15 @@ TABLE_TARGET_RECYCLE.on("click", "#item-recycle", function() {
           });
       }
     });
+});
+
+id_tap.on("focus", function() {
+  TAP_ID_LIST.fadeIn();
+});
+
+TAP_ID_LIST.on("click", ".tapid", function() {
+  id_tap.val($(this).text());
+  TAP_ID_LIST.fadeOut();
 });
 
 SAVE_TAP.unbind().on("click", function() {

@@ -94,6 +94,17 @@
     .item-delete--margin {
       margin-right: 10px;
     }
+    .tapid {
+      font-size: 14px;
+      padding: 10px 15px;
+      height: 42px;
+      color: "white";
+      background-color: #eee;
+    }
+    .tapid:hover {
+      color: white;
+      background-color: #7f63f4;
+    }
   </style>
 </head>
 
@@ -208,6 +219,7 @@
     <script>
       var base_url = "<?= base_url() ?>";
       var api_play = "<?= $this->config->item('api_play') ?>";
+      var api_mc = "<?= $this->config->item('api_mc') ?>";
       var id = "<?= $this->session->userdata('id'); ?>"
       var auth = "<?= $this->session->userdata('status'); ?>";
     </script>

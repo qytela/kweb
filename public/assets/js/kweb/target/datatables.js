@@ -152,7 +152,18 @@ $("#table-target tbody").on("click", "td", function() {
         }, 1000);
       }
     } else if (cek == 'Tap ID') {
-      $("#modalDivTargetTap").modal("show");
+      fetchApiMc("gettapid", "POST", { msisdn: data.no_telp })
+        .then(function(response) {
+          var tab_list = '';
+          var list = response.data.map(el => {
+            return '<div class="tapid mt-1"><span>' + el + '</span></div>';
+          });
+          list.forEach(element => {
+            tab_list += element;
+          });
+          $("#tap-id-list").html(tab_list);
+          $("#modalDivTargetTap").modal("show");
+        });
       $("#val-id_target_tap_id").val(data.id);
       $("#val-tap_id").val(data.tap_id);
     }

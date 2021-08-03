@@ -15,6 +15,7 @@
             <div class="input-group">
               <input type="number" class="form-control" placeholder="Masukkan Tap ID..." name="val-tap_id" id="val-tap_id">
             </div>
+            <div id="tap-id-list"></div>
           </div>
           <input type="hidden" id="val-id_target_tap_id" value="">
         </form>

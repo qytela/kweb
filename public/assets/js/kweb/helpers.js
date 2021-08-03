@@ -13,6 +13,18 @@ function fetchData(url, type = "GET", data = {}, headers = {}) {
   });
 }
 
+function fetchApiMc(url, type = "GET", data = {}, headers = {}) {
+  return new Promise(function(resolve) {
+    $.ajax({
+      data, type, headers,
+      url: api_mc + url,
+      dataType: "json",
+      success: resolve,
+      error: console.error
+    });
+  });
+}
+
 function SwalFireDelete({ title, text }) {
   return new Promise(function(resolve) {
     var swal = Swal.fire({
