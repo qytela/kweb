@@ -16,7 +16,6 @@ var TABLE_TRACKING = $("#table-tracking");
 
 $("#add-item-tracking").on("click", function() {
   no_tracking.val(no_target.val());
-  operator.prop("disabled", false);
   tanggal_status.val(makeDateStatus(new Date()));
   resetFields([mulai_aktif, akhir_aktif, status_target.filter("checked")]);
 
@@ -47,7 +46,6 @@ TABLE_TRACKING.on("click", "#item-edit", function() {
       mulai_aktif.val(makePeriode().mulai_aktif_);
       akhir_aktif.val(makePeriode().akhir_aktif_);
       operator.val(response.operator).trigger("change");
-      operator.prop("disabled", true);
 
       if (response.status_target === "aktif") {
         status_target_a.prop("checked", true);

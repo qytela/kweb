@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                   <label>Tanggal Awal</label>
-                  <input type="text" class="datepicker form-control form-control--small date-label" name="date_awal" id="date_awal" data-mask="99-99-9999">
+                  <input type="text" class="form-control form-control--small date-label datepicker" name="date_awal" id="date_awal" data-mask="99-99-9999">
                   <span class="date-label">DD-MM-YYYY</span>
                 </div>
               </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                   <label>Tanggal Akhir</label>
-                  <input type="text" class="datepicker form-control form-control--small date-label" name="date_akhir" id="date_akhir" data-mask="99-99-9999">
+                  <input type="text" class="form-control form-control--small date-label datepicker" name="date_akhir" id="date_akhir" data-mask="99-99-9999">
                   <span class="date-label">DD-MM-YYYY</span>
                 </div>
               </div>

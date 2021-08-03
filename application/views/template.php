@@ -40,7 +40,7 @@
     .form-control--small {
       height: calc(1.5em + .5rem + 2px) !important;
     }
-    .popover{
+    audio {
       max-width: 100%;
     }
     thead th {
@@ -213,6 +213,11 @@
   <script>
     $(".select2").select2({
       dropdownAutoWidth: true
+    });
+    $(".datepicker").datepicker({
+      autoclose: true,
+      language: "id",
+      format: "dd-mm-yyyy"
     });
   </script>
   <?php if (isset($js)) : ?>

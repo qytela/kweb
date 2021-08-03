@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-6">
                   <div class="input-group">
-                    <input type="date" class="form-control" placeholder="Masukkan Tanggal Lahir..." name="val-tanggal_lahir" id="val-tanggal_lahir">
+                    <input type="text" class="form-control datepicker" placeholder="Masukkan Tanggal Lahir..." name="val-tanggal_lahir" id="val-tanggal_lahir">
                   </div>
                 </div>
               </div>

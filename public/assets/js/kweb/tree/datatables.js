@@ -5,12 +5,6 @@ var params = {};
 
 var TABLE_TREE = $("#table-tree");
 
-$("#date_awal, #date_akhir").datepicker({
-  autoclose: true,
-  language: "id",
-  format: "dd-mm-yyyy"
-});
-
 reset();
 setParams();
 
