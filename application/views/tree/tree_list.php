@@ -13,7 +13,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-md-4 col-xl-6">
-            <h4 style="color: #000; font-size: 16px;">Selected:</h4>
+            <h4 style="color: #000; font-size: 12px;">Selected:</h4>
             <ol class="selected" style="color: #000; margin-left: -15px;"></ol>
           </div>
           <div class="col-12 col-md-8 col-xl-6">
@@ -21,26 +21,26 @@
               <div class="ml-3">
                 <div class="form-check mb-2">
                   <input class="form-check-input" type="checkbox" name="cb_voice" id="cb_voice" value="10">
-                  <label class="form-check-label ml-1" style="font-size: 18px;">
+                  <label class="form-check-label ml-1">
                     Voice call (incl. VoIP)
                   </label>
                 </div>
                 <div class="form-group">
                   <label>Tanggal Awal</label>
-                  <input type="text" class="datepicker form-control" name="date_awal" id="date_awal" data-mask="99-99-9999">
+                  <input type="text" class="datepicker form-control form-control--small" name="date_awal" id="date_awal" data-mask="99-99-9999">
                   <span class="date-label">DD-MM-YYYY</span>
                 </div>
               </div>
               <div class="ml-3">
                 <div class="form-check mb-2">
                   <input class="form-check-input" type="checkbox" name="cb_sms" id="cb_sms" value="3">
-                  <label class="form-check-label ml-1" style="font-size: 18px;">
+                  <label class="form-check-label ml-1">
                     SMS
                   </label>
                 </div>
                 <div class="form-group">
                   <label>Tanggal Akhir</label>
-                  <input type="text" class="datepicker form-control" name="date_akhir" id="date_akhir" data-mask="99-99-9999">
+                  <input type="text" class="datepicker form-control form-control--small" name="date_akhir" id="date_akhir" data-mask="99-99-9999">
                   <span class="date-label">DD-MM-YYYY</span>
                 </div>
               </div>

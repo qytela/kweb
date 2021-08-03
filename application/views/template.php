@@ -31,14 +31,17 @@
       margin-bottom: 0;
     }
     input[type=checkbox] {
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
     }
     .form-group {
       margin-bottom: 0.5rem !important;
     }
     .form-check-label {
-      font-size: 16px !important;
+      font-size: 12px !important;
+    }
+    .form-control--small {
+      height: calc(1.5em + .5rem + 2px) !important;
     }
     .date-label {
       font-size: 12px;
@@ -55,7 +58,7 @@
       font-size: 12px;
     }
     .fancytree-title {
-      font-size: 10px;
+      font-size: 12px !important;
     }
     .select2-container .select2-search--inline .select2-search__field {
       margin-top: 8.5px;
@@ -63,6 +66,12 @@
     }
     .select2-container--default .select2-selection--multiple .select2-selection__choice, .select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option--highlighted[aria-selected] {
       margin-top: 8.5px;
+    }
+    .custom-select.custom-select-sm.form-control.form-control-sm {
+      height: calc(1.5em + .5rem + 2px) !important;
+      padding: 0 !important;
+      padding-left: 10px !important;
+      padding-right: 25px !important;
     }
     .section .section-header h1 {
       font-size: 14px;
