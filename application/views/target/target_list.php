@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="card-body">
-        <h4 style="font-style: italic;color: #283593; font-size: 12px;"><span class="text-danger">*</span>note : klik baris target untuk menambahkan tracking</h4>
+        <h4 style="font-style: italic;color: #283593; font-size: 12px;"><span class="text-danger">*</span>note : klik dibaris target untuk mengaktifkan</h4>
         <div class="table-responsive">
           <table class="table table-striped costum-table" id="table-target">
             <thead>

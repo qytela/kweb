@@ -119,9 +119,9 @@ class Kasus_model extends CI_Model {
       $this->db->update('tbl_kasus', $field);
       if ($this->db->affected_rows() > 0) {
         $status = $this->session->userdata('status');
-        if ($status != 'user') {
+        // if ($status != 'user') {
           $this->db->delete('tbl_kasus_user', array('id_kasus' => $id));
-        }
+        // }
         $users = $this->input->post('val-users', TRUE);
         if ($users) {
           for ($i = 0; $i < count($users); $i++) {

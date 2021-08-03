@@ -70,7 +70,10 @@
     .section .section-header h1 {
       font-size: 14px;
     }
-    .datepicker .datepicker-switch, .datepicker td, .datepicker th, .date-label, .form-check-label {
+    .date-label {
+      font-size: 10px;
+    }
+    .datepicker .datepicker-switch, .datepicker td, .datepicker th, .form-check-label {
       font-size: 12px !important;
     }
   </style>
