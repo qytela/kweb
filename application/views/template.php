@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Spyglass K Web</title>
+  <title>Web Monitoring</title>
 
   <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>public/assets/images/favicon.png">
 
@@ -54,6 +54,9 @@
     }
     .select2-container--default .select2-selection--multiple .select2-selection__choice, .select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option--highlighted[aria-selected] {
       margin-top: 8.5px;
+    }
+    .section .section-header h1 {
+      font-size: 16px;
     }
   </style>
 </head>

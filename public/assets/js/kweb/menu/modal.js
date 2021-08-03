@@ -76,7 +76,7 @@ function onValidationMenu(options) {
   }
 
   showLoading(true);
-  onPostRole(options);
+  onPostMenu(options);
 }
 
 function onPostMenu(options) {

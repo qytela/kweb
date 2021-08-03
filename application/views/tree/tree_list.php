@@ -12,7 +12,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-md-6">
-            <h5 style="color: #000;">Selected:</h5>
+            <h4 style="color: #000; font-size: 16px;">Selected:</h4>
             <ol class="selected" style="color: #000; margin-left: -15px;"></ol>
           </div>
           <div class="col-12 col-md-6">
