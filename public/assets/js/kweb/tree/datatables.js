@@ -245,6 +245,11 @@ function setTree() {
   $(".fancytree-container").css("font-size", "12pt");
 }
 
+$(".form-check-input").on("change", function() {
+  setEventType();
+  console.log("Fansa");
+});
+
 function setKasus() {
   var data = [];
   $.ajax({
@@ -308,7 +313,6 @@ function setEventType() {
       return $(this).val();
   }).get();
   event_type_id = searchIDs;
-  console.log(searchIDs);
 }
 
 function setParams() {

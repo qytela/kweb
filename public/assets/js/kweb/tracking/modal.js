@@ -45,8 +45,8 @@ TABLE_TRACKING.on("click", "#item-edit", function() {
   fetchData("tracking/edit_", "POST", { id })
     .then(function(response) {
       no_tracking.val(response.no_tracking);
-      mulai_aktif.val(makePeriode().mulai_aktif_);
-      akhir_aktif.val(makePeriode().akhir_aktif_);
+      mulai_aktif.val(makePeriode(response.mulai_aktif, 1).mulai_aktif_);
+      akhir_aktif.val(makePeriode(response.akhir_aktif, 1).akhir_aktif_);
       operator.val(response.operator).trigger("change");
 
       if (response.status_target === "aktif") {
@@ -114,11 +114,11 @@ function onPostTracking(options) {
     });
 }
 
-function makePeriode() {
-  var mulai_aktif__ = new Date();
+function makePeriode(date = new Date(), addMonth = 2) {
+  var mulai_aktif__ = new Date(date);
   var mulai_aktif_ = ("0" + mulai_aktif__.getDate()).slice(-2) + '-' + ("0" + (mulai_aktif__.getMonth() + 1)).slice(-2) + '-' + mulai_aktif__.getFullYear();
-  var akhir_aktif__ = new Date();
-  var akhir_aktif_ = ("0" + akhir_aktif__.getDate()).slice(-2) + '-' + ("0" + (akhir_aktif__.getMonth() + 2)).slice(-2) + '-' + akhir_aktif__.getFullYear();
+  var akhir_aktif__ = new Date(date);
+  var akhir_aktif_ = ("0" + akhir_aktif__.getDate()).slice(-2) + '-' + ("0" + (akhir_aktif__.getMonth() + addMonth)).slice(-2) + '-' + akhir_aktif__.getFullYear();
 
   return { mulai_aktif_, akhir_aktif_ };
 }
