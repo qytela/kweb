@@ -30,13 +30,13 @@
           <div class="form-group">
             <label>Periode Mulai Aktif</label>
             <div class="input-group">
-              <input type="text" class="form-control datepicker inputmask" placeholder="Masukkan Periode Mulai Aktif..." name="val-mulai_aktif" id="val-mulai_aktif" data-mask="99-99-9999">
+              <input type="text" class="form-control datepicker inputmask" placeholder="Masukkan Periode Mulai Aktif..." name="val-mulai_aktif" id="val-mulai_aktif" data-mask="99-99-9999" value="<?= date("d-m-Y"); ?>">
             </div>
           </div>
           <div class="form-group">
             <label>Periode Akhir Aktif</label>
             <div class="input-group">
-              <input type="text" class="form-control datepicker inputmask" placeholder="Masukkan Periode Akhir Aktif..." name="val-akhir_aktif" id="val-akhir_aktif" data-mask="99-99-9999">
+              <input type="text" class="form-control datepicker inputmask" placeholder="Masukkan Periode Akhir Aktif..." name="val-akhir_aktif" id="val-akhir_aktif" data-mask="99-99-9999" value="<?= date("d-m-Y"); ?>">
             </div>
           </div>
           <div class="form-group">
@@ -63,7 +63,7 @@
           <div class="form-group">
             <label>Tanggal Status</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Masukkan Tanggal Status..." name="val-tanggal_status" id="val-tanggal_status" readonly>
+              <input type="text" class="form-control datepicker inputmask" placeholder="Masukkan Tanggal Status..." name="val-tanggal_status" id="val-tanggal_status" data-mask="99-99-9999" value="<?= date("d-m-Y"); ?>" readonly>
             </div>
           </div>
         </form>

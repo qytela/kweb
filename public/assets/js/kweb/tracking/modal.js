@@ -18,8 +18,8 @@ reset();
 
 $("#add-item-tracking").on("click", function() {
   no_tracking.val(no_target.val());
-  tanggal_status.val(makeDateStatus(new Date()));
-  resetFields([mulai_aktif, akhir_aktif, status_target.filter("checked")]);
+  tanggal_status.val(makePeriode().akhir_aktif_);
+  resetFields([status_target.filter("checked")]);
 
   fetchData("tracking/get_operator_", "POST", { prefix: no_target.val() })
     .then(function(response) {
@@ -40,7 +40,7 @@ $("#add-item-tracking").on("click", function() {
 TABLE_TRACKING.on("click", "#item-edit", function() {
   var id = $(this).attr("data");
 
-  resetFields([mulai_aktif, akhir_aktif, status_target.filter("checked")]);
+  resetFields([status_target.filter("checked")]);
 
   fetchData("tracking/edit_", "POST", { id })
     .then(function(response) {
@@ -84,6 +84,22 @@ TABLE_TRACKING.on("click", "#item-delete", function() {
     });
 });
 
+akhir_aktif.on("change", function() {
+  if (status_target_a.is(":checked")) {
+    tanggal_status.val(akhir_aktif.val());
+  } else {
+    tanggal_status.val(moment().format("DD-MM-YYYY"));
+  }
+});
+
+status_target.on("change", function() {
+  if ($(this).val() === "aktif") {
+    tanggal_status.val(akhir_aktif.val());
+  } else {
+    tanggal_status.val(moment().format("DD-MM-YYYY"));
+  }
+});
+
 function onPostTracking(options) {
   var data = {
     "val-no_tracking": no_tracking.val(),
@@ -116,16 +132,16 @@ function onPostTracking(options) {
 
 function makePeriode(date = new Date(), addMonth = 2) {
   var mulai_aktif__ = new Date(date);
-  var mulai_aktif_ = ("0" + mulai_aktif__.getDate()).slice(-2) + '-' + ("0" + (mulai_aktif__.getMonth() + 1)).slice(-2) + '-' + mulai_aktif__.getFullYear();
+  var mulai_aktif_ = ("0" + mulai_aktif__.getDate()).slice(-2) + "-" + ("0" + (mulai_aktif__.getMonth() + 1)).slice(-2) + "-" + mulai_aktif__.getFullYear();
   var akhir_aktif__ = new Date(date);
-  var akhir_aktif_ = ("0" + akhir_aktif__.getDate()).slice(-2) + '-' + ("0" + (akhir_aktif__.getMonth() + addMonth)).slice(-2) + '-' + akhir_aktif__.getFullYear();
+  var akhir_aktif_ = ("0" + akhir_aktif__.getDate()).slice(-2) + "-" + ("0" + (akhir_aktif__.getMonth() + addMonth)).slice(-2) + "-" + akhir_aktif__.getFullYear();
 
   return { mulai_aktif_, akhir_aktif_ };
 }
 
-function makeDateStatus(date) {
+function makeDateStatus(date = new Date()) {
   var tanggal_status_ = new Date(date);
-  var tanggal_status = ("0" + tanggal_status_.getDate()).slice(-2) + '-' + ("0" + (tanggal_status_.getMonth() + 1)).slice(-2) + '-' + tanggal_status_.getFullYear();
+  var tanggal_status = ("0" + tanggal_status_.getDate()).slice(-2) + "-" + ("0" + (tanggal_status_.getMonth() + 1)).slice(-2) + "-" + tanggal_status_.getFullYear();
 
   return tanggal_status;
 }
