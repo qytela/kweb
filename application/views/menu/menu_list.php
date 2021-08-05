@@ -4,8 +4,8 @@
       <div class="card-header d-flex justify-content-between">
         <h4>Menu List</h4>
         <div>
-          <btn class="btn btn-rounded btn-info mr-2" id="add-item-menu">Add Menu</btn>
-          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-menu', true)">Refresh</btn>
+          <button class="btn btn-rounded btn-info mr-2" id="add-item-menu">Add Menu</button>
+          <button class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-menu', true)">Refresh</button>
         </div>
       </div>
       <div class="card-body">

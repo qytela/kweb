@@ -4,8 +4,8 @@
       <div class="card-header d-flex justify-content-between">
         <h4>Role List</h4>
         <div>
-          <btn class="btn btn-rounded btn-info mr-2" id="add-item-role">Add Role</btn>
-          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-role', true)">Refresh</btn>
+          <button class="btn btn-rounded btn-info mr-2" id="add-item-role">Add Role</button>
+          <button class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-role', true)">Refresh</button>
         </div>
       </div>
       <div class="card-body">

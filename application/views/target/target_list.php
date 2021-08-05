@@ -22,8 +22,8 @@
       <div class="card-header d-flex justify-content-between">
         <h4>Target List</h4>
         <div>
-          <btn class="btn btn-rounded btn-info mr-2" id="add-item-target">Add Target</btn>
-          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-target', true)">Refresh</btn>
+          <button class="btn btn-rounded btn-info mr-2" id="add-item-target">Add Target</button>
+          <button class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-target', true)">Refresh</button>
           <a href="<?= base_url() ?>target/recycle" class="btn btn-rounded btn-danger mt-2 mt-md-0">Recycle</a>
         </div>
       </div>

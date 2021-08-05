@@ -6,8 +6,8 @@
       <div class="card-header d-flex justify-content-between">
         <h4>Tracking List</h4>
         <div>
-          <btn class="btn btn-rounded btn-info mr-2" id="add-item-tracking">Add Tracking</btn>
-          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-tracking', true)">Refresh</btn>
+          <button class="btn btn-rounded btn-info mr-2" id="add-item-tracking">Add Tracking</button>
+          <button class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-tracking', true)">Refresh</button>
         </div>
       </div>
       <div class="card-body">

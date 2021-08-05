@@ -38,13 +38,51 @@ $("#add-item-target").on("click", function() {
   });
 });
 
+$("#restore-all-target").on("click", function() {
+  var id = $('select[id="val-id_kasus-recycle"] option').filter(":selected").val();
+
+  if (!id) return false;
+
+  SwalFireRestore({ title: "Anda Yakin?", text: "Restore semua data Target!" })
+    .then(function(result) {
+      if (result.isConfirmed) {
+        fetchData("target/restore_all_", "POST", { id })
+          .then(function(response) {
+            if (response.success) {
+              SwalFireSuccess();
+              refreshDataTables(TABLE_TARGET_RECYCLE);
+            }
+          });
+      }
+    });
+});
+
+$("#delete-all-target").on("click", function() {
+  var id = $('select[id="val-id_kasus-recycle"] option').filter(":selected").val();
+
+  if (!id) return false;
+
+  SwalFireDelete({ title: "Anda Yakin?", text: "Hapus semua data Target!" })
+    .then(function(result) {
+      if (result.isConfirmed) {
+        fetchData("target/delete_all_", "POST", { id })
+          .then(function(response) {
+            if (response.success) {
+              SwalFireSuccess();
+              refreshDataTables(TABLE_TARGET_RECYCLE);
+            }
+          });
+      }
+    });
+});
+
 $('select[id="val-id_kasus"]').on("change", function() {
   TRACKING_LIST.hide();
-  TABLE_TARGET.DataTable().ajax.reload();
+  refreshDataTables(TABLE_TARGET);
 });
 
 $('select[id="val-id_kasus-recycle"]').on("change", function() {
-  TABLE_TARGET_RECYCLE.DataTable().ajax.reload();
+  refreshDataTables(TABLE_TARGET_RECYCLE);
 });
 
 TABLE_TARGET.on("click", "#item-edit", function() {

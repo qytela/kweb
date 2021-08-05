@@ -22,6 +22,8 @@
       <div class="card-header d-flex justify-content-between">
         <h4>Target List Recycle</h4>
         <div>
+          <button class="btn btn-rounded btn-success mr-2" id="restore-all-target">Restore All</button>
+          <button class="btn btn-rounded btn-danger mr-2" id="delete-all-target">Delete All</button>
           <a href="<?= base_url() ?>target" class="btn btn-rounded btn-info mr-2">Kembali</a>
         </div>
       </div>

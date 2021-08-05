@@ -4,8 +4,8 @@
       <div class="card-header d-flex justify-content-between">
         <h4>User List</h4>
         <div>
-          <btn class="btn btn-rounded btn-info mr-2" id="add-item-user">Add User</btn>
-          <btn class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-user', true)">Refresh</btn>
+          <button class="btn btn-rounded btn-info mr-2" id="add-item-user">Add User</button>
+          <button class="btn btn-rounded btn-success mr-2" onclick="refreshDataTables('table-user', true)">Refresh</button>
         </div>
       </div>
       <div class="card-body">
