@@ -41,7 +41,7 @@ $("#add-item-target").on("click", function() {
 $("#restore-all-target").on("click", function() {
   var id = $('select[id="val-id_kasus-recycle"] option').filter(":selected").val();
 
-  if (!id) return false;
+  if (!id) return SwalFireError("Pilih kasus terlebih dahulu!");
 
   SwalFireRestore({ title: "Anda Yakin?", text: "Restore semua data Target!" })
     .then(function(result) {
@@ -60,7 +60,7 @@ $("#restore-all-target").on("click", function() {
 $("#delete-all-target").on("click", function() {
   var id = $('select[id="val-id_kasus-recycle"] option').filter(":selected").val();
 
-  if (!id) return false;
+  if (!id) return SwalFireError("Pilih kasus terlebih dahulu!");
 
   SwalFireDelete({ title: "Anda Yakin?", text: "Hapus semua data Target!" })
     .then(function(result) {
